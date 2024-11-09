@@ -17,6 +17,7 @@ import org.opencv.core.Mat;
 // import org.opencv.core.Point;
 // import org.opencv.core.Scalar;
 import org.opencv.imgproc.Imgproc;
+
 public class Apriltags{
     private int currentID = 0;
     public final void april_init(){
@@ -36,11 +37,11 @@ public class Apriltags{
             0.1651, 699.3778103158814, 677.7161226393544, 345.6059345433618, 207.12741326228522
         );
         var estimator = new AprilTagPoseEstimator(poseEstimator);
-
+        System.out.println("Estimator: " + estimator);
         UsbCamera camera = CameraServer.startAutomaticCapture();
         camera.setResolution(640, 480);
         CvSink cvSink = CameraServer.getVideo();
-        CvSource cvsource = CameraServer.putVideo("Detected", 640, 480);
+        CvSource cvsource = CameraServer.putVideo("Detector", 640, 480);
 
         var mat = new Mat();
         var gray_mat = new Mat();
